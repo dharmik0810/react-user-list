@@ -4,18 +4,18 @@ import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 
-const Card1 = () => {
+const Card1 = (props) => {
     return (
         <div>
-            <h1>Card 1</h1>
+            <h1>{props.name}</h1>
         </div>
     )
 };
 
-const Card2 = () => {
+const Card2 = (props) => {
     return (
         <div>
-            <h1>Card 2</h1>
+            <h1>{props.name}</h1>
         </div>
     )
 };
@@ -24,7 +24,18 @@ class Card3 extends React.Component {
     render() {
         return (
             <div>
-                <h1>Card 3</h1>
+                <h1>{this.props.name}</h1>
+            </div>
+        )
+    }
+}
+
+class Card4 extends React.Component{
+    state={name:'Card 4'};
+    render(){
+        return(
+            <div>
+                <h1>{this.state.name}</h1>
             </div>
         )
     }
@@ -36,14 +47,14 @@ class CardList extends React.Component {
         return (
             <div>
                 <h1>Hello React!!</h1>
-                <Card1/>
-                <Card2/>
-                <Card3/>
+                <Card1 name="Card 1"/>
+                <Card2 name="Card 2"/>
+                <Card3 name="Card 3"/>
+                <Card4/>
             </div>
         )
     }
 }
-;
 
 ReactDOM.render(<CardList/>, document.getElementById('root'));
 registerServiceWorker();
